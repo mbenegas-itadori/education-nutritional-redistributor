@@ -77,8 +77,7 @@ paths) but run on any environment once paths are adjusted — see
 If you use this code, please cite the paper:
 
 > Benegas, M. (2026). Education as a Nutritional Redistributor: Income,
-> Diet Quality, and the Demand for Nutrients in Brazil. *Food Policy*
-> (forthcoming).
+> Diet Quality, and the Demand for Nutrients in Brazil, (subbmitted).
 
 See `CITATION.cff` for machine-readable citation metadata.
 
@@ -91,3 +90,4 @@ are governed by their respective sources' terms of use.
 ## Contact
 
 Mauricio Benegas — Graduate Program in Economics, CAEN/UFC
+mbenegas@ufc.br
