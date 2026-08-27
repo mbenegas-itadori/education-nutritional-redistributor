@@ -1,0 +1,27 @@
+# Dados brutos e derivados — não versionar (grandes, e a POF não deve
+# ser redistribuída diretamente; ver README.md "Data availability")
+POF/dados/
+POF/output/
+POF/documentacao/
+*.parquet
+*.npz
+*.xlsx
+*.csv
+
+# Exceção: outputs pequenos de resultado (JSON), úteis para auditoria
+# Descomente se decidir versionar (ver REPRODUCIBILITY.md §8, TODO)
+# !quaids_s1_resultados.json
+# !quaids_s4_resultados.json
+# !eta_nutricional.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Sistema
+.DS_Store
+Thumbs.db

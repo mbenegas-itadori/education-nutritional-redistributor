@@ -1,0 +1,12 @@
+# Dependências identificadas nos 11 scripts do pipeline.
+# Versões exatas ainda não fixadas — ver REPRODUCIBILITY.md, §4 e §8.
+# Recomenda-se fixar (pip freeze) assim que o ambiente de referência
+# (Google Colab) for confirmado, para reprodutibilidade bit-a-bit.
+
+pandas
+numpy
+scipy
+statsmodels
+scikit-learn
+matplotlib
+openpyxl
