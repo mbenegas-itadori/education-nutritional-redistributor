@@ -2,7 +2,7 @@
 ### Income, Diet Quality, and the Demand for Nutrients in Brazil
 
 Replication package for the paper by Mauricio Benegas (CAEN/UFC), submitted
-to *Food Policy*.
+.
 
 [![DOI](https://zenodo.org/badge/DOI/PENDING.svg)](https://doi.org/PENDING)
 
