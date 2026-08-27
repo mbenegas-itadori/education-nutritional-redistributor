@@ -10,6 +10,7 @@ version: "1.0.0"
 date-released: "2026-08-27"
 repository-code: "https://github.com/PLACEHOLDER_USERNAME/PLACEHOLDER_REPO"
 license: MIT
+DOI 10.5281/zenodo.22132488
 preferred-citation:
   type: article
   title: "Education as a Nutritional Redistributor: Income, Diet Quality, and the Demand for Nutrients in Brazil"
