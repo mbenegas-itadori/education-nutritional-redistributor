@@ -4,7 +4,7 @@
 Replication package for the paper by Mauricio Benegas (CAEN/UFC), submitted
 .
 
-[![DOI](https://zenodo.org/badge/DOI/PENDING.svg)](https://doi.org/PENDING)
+[![DOI](https://zenodo.org/badge/1348443132.svg)](https://doi.org/10.5281/zenodo.22132487)
 
 ---
 
