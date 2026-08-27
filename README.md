@@ -69,9 +69,6 @@ paths) but run on any environment once paths are adjusted — see
 
 ## Known limitations of this replication package
 
-- Two scripts (`00_classificacao_v2.py`, and the scripts generating price
-  elasticity tables) are referenced by the pipeline but not yet located —
-  see the TODO list in `REPRODUCIBILITY.md` (§8).
 - Software versions (Python, pandas, numpy, statsmodels, etc.) are not yet
   pinned to exact numbers — see `REPRODUCIBILITY.md` (§4).
 

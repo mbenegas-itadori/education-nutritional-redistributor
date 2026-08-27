@@ -124,7 +124,7 @@ dependency order, not file naming (which has real gaps — there is no
 | 5 | `00_consumo_quaids_v2.py` | `CADERNETA_COLETIVA.txt`, `DESPESA_INDIVIDUAL.txt`, `Cadastro de Produtos.xls`, `classificacao_grupos_v2.parquet`, `socioeconomico.parquet` | `consumo_quaids_v2.parquet` (58,039 households) | Annualized expenditure by group — collective diary + Quadro 24 (Tobacco=21, Food Away+Alcohol=24, travel=41) |
 | 6 | `01b_base_analitica_v2.py` | `consumo_quaids_v2.parquet`, `socioeconomico.parquet`, `classificacao_grupos_v2.parquet`, `CADERNETA_COLETIVA.txt`, `DESPESA_INDIVIDUAL.txt`, `Cadastro de Produtos.xls`, `Cadastro de Unidades de Medida.xls` | `base_analitica_v2.parquet` (58,039), `base_quaids_v2.parquet` (54,208) | Prices (Deaton correction + hierarchical imputation PSU→state→region), Stone index, centered `LN_M_C` |
 | 7 | `03_probit_copula_v3.py` | `base_quaids_v2.parquet` | `probit_copula_resultados.parquet`, `probit_cov_mats.npz`, `probit_xb.parquet` | Stage 1: participation Probit + copula-family selection via CMLE |
-| 8 | `04_quaids_estimacao.py` | `base_quaids_v2.parquet`, outputs of (7) | `quaids_s1_resultados.json` (M1), `quaids_s4_resultados.json` (M2), `quaids_cov_mats.npz` | Iterated SUR (M1 baseline, M2 education×income interaction), Murphy–Topel correction |
+| 8 | `04_quaids_estimacao.py` | `base_quaids_v2.parquet`, outputs of (7) | `quaids_s1_resultados.json` (M1, includes full `E_M`/`E_H` price-elasticity matrices — Tables 6–9), `quaids_s4_resultados.json` (M2), `quaids_cov_mats.npz`, `quaids_elasticidades.parquet` (own-price summary) | Iterated SUR (M1 baseline, M2 education×income interaction), Murphy–Topel correction, Marshallian/Hicksian price elasticities |
 | 9 | `05_elasticidades_nutricionais.py` | outputs of (8), `matriz_omega.parquet` | `eta_nutricional.json` | η̂ₙ = Ωμ̂ (M1) and η̂ₙᵏ by stratum (M2), standard errors via the delta method |
 | 10 | `06_engel_nutricional_FINAL.py` | `base_quaids_v2.parquet`, `matriz_omega.parquet` | `figA/B/C_nutricional_FINAL.pdf` | Nutritional Engel curves (Figures 3–4 of the paper) |
 | 11 | `08_engel_grupos_FINAL.py` | `base_quaids_v2.parquet` | `engel_grupos_figA/B.pdf` | Engel curves by food group (Figures 1–2 of the paper) |
@@ -175,9 +175,14 @@ Provenance of each file:
 - `00_classificacao_v2.py`: resolved from three candidate versions found
   on the author's machine — see §6.6
 
-`TODO`: the script(s) generating Tables 6–9 (price elasticities, including
-Hicksian/Marshallian via Slutsky) have not been located/mapped in this
-session — complete before considering the repository 100% complete.
+`✅ Resolved (session 2026-08-27)`: the script generating Tables 6–9 was
+never missing — `04_quaids_estimacao.py` (already in the repository)
+computes the full 14×14 Marshallian (`E_M`) and Hicksian (`E_H`) elasticity
+matrices, own-price and cross-price, saved inside
+`quaids_s1_resultados.json` (fields `E_M`, `E_H`). A smaller summary
+(own-price diagonal only) is also saved separately in
+`quaids_elasticidades.parquet`. This is the same `E_H` matrix already used
+in this session's decisive test confirming Table 9 (§7).
 
 ---
 
@@ -376,7 +381,7 @@ these two sources (fixed in this session).
 - [x] ~~Fix the median-labeled-as-mean bug in Figures 1–4~~ — see §6.4
 - [x] ~~Assemble the repository of validated scripts~~ — see §5.1, 12/12 scripts archived
 - [x] ~~Confirm the exact name of `00_classificacao_v2.py`~~ — resolved, see §6.6
-- [ ] Map the script(s) generating Tables 6–9 (price elasticities) — not located yet
+- [x] ~~Map the script(s) generating Tables 6–9 (price elasticities)~~ — resolved, see §5.1: already inside `04_quaids_estimacao.py`
 - [ ] Fill in software versions (§4)
 - [ ] Decide the raw-data redistribution policy (POF is public, but confirm
       terms of use for redistributing the processed `.txt`)
